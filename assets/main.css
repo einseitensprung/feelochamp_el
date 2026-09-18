@@ -66,6 +66,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, .btn:focus-visible, 
   font-family:'Bebas Neue', sans-serif; font-size:1.5rem; letter-spacing:.06em;
   color: var(--white); display:flex; align-items:center; gap:.55rem;
 }
+.navbar-feelo .navbar-brand .brand-suffix{
+  font-size:.55em; letter-spacing:.04em; color: var(--cyan); margin-left:-.3rem;
+}
 .navbar-feelo .nav-link{
   color: var(--slate); font-size:.85rem; font-weight:600; letter-spacing:.02em;
   padding:.5rem .85rem !important; transition: color .15s ease;
