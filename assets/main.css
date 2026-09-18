@@ -68,6 +68,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, .btn:focus-visible, 
 }
 .navbar-feelo .navbar-brand .brand-suffix{
   font-size:.55em; letter-spacing:.04em; color: var(--cyan); margin-left:-.3rem;
+  align-self:flex-end; padding-bottom:.1em;
 }
 .navbar-feelo .nav-link{
   color: var(--slate); font-size:.85rem; font-weight:600; letter-spacing:.02em;
