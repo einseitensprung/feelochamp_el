@@ -196,6 +196,7 @@ body.page-home .navbar-feelo .nav-link{ font-size:.86rem; padding:.5rem .9rem !i
   opacity:.5;
 }
 .hero-rays .twinkle{ animation: twinkle 3.4s ease-in-out infinite; }
+.hero-rays line, .page-header-rays line{ stroke:#ffd23f; }
 @keyframes twinkle{ 0%,100%{ opacity:.9; } 50%{ opacity:.2; } }
 @media (prefers-reduced-motion: reduce){ .hero-rays .twinkle, .page-header-rays .twinkle{ animation:none; } }
 
