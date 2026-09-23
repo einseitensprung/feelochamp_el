@@ -163,6 +163,41 @@ body.page-home .navbar-feelo .nav-link{ font-size:.86rem; padding:.5rem .9rem !i
 /* Mobile: das User-Dropdown genau wie die anderen Nav-Dropdowns
    (inline aufklappen statt rechts überlagern) */
 @media (max-width: 991.98px){
+  /* Mobil-Menü fährt als Panel von rechts herein statt nach unten aufzuklappen.
+     Bootstraps Collapse-JS bleibt unverändert: .collapse/.collapsing/.show werden
+     auf dieselbe Panel-Geometrie gezwungen (kein Höhen-Tween), der Offen-Zustand
+     hängt am aria-expanded des Togglers (wird sofort beim Klick gesetzt), damit
+     Ein- und Ausfahren jeweils direkt starten. Bootstrap wartet auf die
+     transform-Transition (gleiche Dauer), bevor es .show setzt/entfernt.
+     Geschlossen bleibt Bootstraps display:none (sonst horizontaler Overflow),
+     das Einfahren aus display:none startet per @starting-style.
+     position:fixed bezieht sich wegen backdrop-filter auf die Navbar -> top:100%. */
+  .navbar-feelo .navbar-collapse,
+  .navbar-feelo .navbar-collapse.collapsing{
+    position: fixed; top: 100%; right: 0;
+    width: min(20rem, 85vw);
+    height: calc(100vh - var(--nav-h)) !important;
+    height: calc(100dvh - var(--nav-h)) !important;
+    overflow-y: auto !important;
+    padding: .75rem .75rem 1.5rem;
+    background: var(--ink-2, #111);
+    border-left: 1px solid var(--line);
+    box-shadow: -20px 0 50px rgba(0,0,0,.55);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform .3s cubic-bezier(.4,.05,.2,1), visibility 0s linear .3s;
+  }
+  .navbar-feelo .navbar-toggler[aria-expanded="true"] ~ .navbar-collapse{
+    transform: none;
+    visibility: visible;
+    transition: transform .3s cubic-bezier(.4,.05,.2,1), visibility 0s linear 0s;
+    @starting-style{ transform: translateX(100%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .navbar-feelo .navbar-collapse,
+    .navbar-feelo .navbar-toggler[aria-expanded="true"] ~ .navbar-collapse{ transition: none; }
+  }
+
   .navbar-feelo .navbar-collapse > .dropdown{ width: 100%; }
   .navbar-feelo .navbar-collapse > .dropdown .user-chip{
     padding: .5rem .85rem;
