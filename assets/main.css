@@ -551,9 +551,19 @@ body.page-default .programme-head h2{
 }
 .champ-avatar{
   width:4.6rem; height:4.6rem; border-radius:50%;
+  padding:0; border:0; cursor:pointer;
   background: linear-gradient(160deg, var(--cyan), var(--blue));
   display:flex; align-items:center; justify-content:center;
   font-family:'JetBrains Mono', monospace; font-weight:700; font-size:1.3rem; color:#0d0d0d;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.champ-avatar:hover{
+  transform: scale(1.04);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.35), 0 8px 24px rgba(0,0,0,0.4);
+}
+@media (prefers-reduced-motion: reduce){
+  .champ-avatar{ transition:none; }
+  .champ-avatar:hover{ transform:none; }
 }
 /* Foto-Variante: freigestelltes Champ-Portrait im runden Rahmen auf dem Verlauf.
    Als <button> ausgeführt (öffnet die Lightbox), darum Button-Defaults zurücksetzen. */
