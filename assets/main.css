@@ -460,7 +460,7 @@ body.page-default .programme-head h2{
 .dash-ergebnisse{ grid-area: ergebnisse; }
 .dash-infos{ grid-area: infos; }
 .dash-statistik{ grid-area: statistik; }
-.champ-card{ grid-area: champ; }
+.champ-stack{ grid-area: champ; display:flex; flex-direction:column; gap:1rem; }
 
 .dash-group{ margin-top: 2.2rem; }
 .dash-heading{
@@ -532,6 +532,22 @@ body.page-default .programme-head h2{
 .champ-trophy .champ-trophy-line{ opacity:.28; }
 @media (max-width: 991.98px){
   .champ-trophy{ width:52%; }
+}
+/* Grosser Deko-Pfeil im Hintergrund der "Aktueller Leader"-Karte, analog zum Pokal oben. */
+.leader-arrow{
+  position:absolute;
+  left:50%; top:50%;
+  transform: translate(-50%, -50%);
+  width:66%; height:auto;
+  max-height:none;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.5;
+}
+.leader-arrow .leader-arrow-fill{ opacity:.1; }
+.leader-arrow .leader-arrow-line{ opacity:.28; }
+@media (max-width: 991.98px){
+  .leader-arrow{ width:52%; }
 }
 .champ-avatar{
   width:4.6rem; height:4.6rem; border-radius:50%;
