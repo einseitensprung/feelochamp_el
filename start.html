@@ -219,16 +219,20 @@
      </div>
 
      <div class="champ-card">
-      <svg class="leader-arrow" viewBox="0 0 48 52" fill="none" aria-hidden="true" focusable="false">
+      <svg class="leader-smiley" viewBox="0 0 48 52" fill="none" aria-hidden="true" focusable="false">
         <defs>
-          <linearGradient id="leaderArrowGrad" x1="24" y1="3" x2="24" y2="49" gradientUnits="userSpaceOnUse">
+          <linearGradient id="leaderSmileyGrad" x1="24" y1="3" x2="24" y2="49" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="var(--cyan-soft)"/>
             <stop offset="1" stop-color="var(--blue)"/>
           </linearGradient>
         </defs>
-        <g transform="rotate(-45 24 26)">
-          <path class="leader-arrow-fill" fill="url(#leaderArrowGrad)" d="M24 4 L44 26 H34 V48 H14 V26 H4 Z"/>
-          <path class="leader-arrow-line" stroke="url(#leaderArrowGrad)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M24 4 L44 26 H34 V48 H14 V26 H4 Z"/>
+        <circle class="leader-smiley-fill" fill="url(#leaderSmileyGrad)" cx="24" cy="26" r="20"/>
+        <g class="leader-smiley-line" stroke="url(#leaderSmileyGrad)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="26" r="20"/>
+          <circle cx="16.5" cy="21" r="1.6" fill="url(#leaderSmileyGrad)" stroke="none"/>
+          <circle cx="31.5" cy="21" r="1.6" fill="url(#leaderSmileyGrad)" stroke="none"/>
+          <path d="M12.5 27c3.5 9 19.5 9 23 0"/>
+          <path d="M15 30h18"/>
         </g>
       </svg>
       <span class="eyebrow">Aktueller Leader</span>

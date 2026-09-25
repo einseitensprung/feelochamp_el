@@ -533,8 +533,8 @@ body.page-default .programme-head h2{
 @media (max-width: 991.98px){
   .champ-trophy{ width:52%; }
 }
-/* Grosser Deko-Pfeil im Hintergrund der "Aktueller Leader"-Karte, analog zum Pokal oben. */
-.leader-arrow{
+/* Grosser Deko-Smiley im Hintergrund der "Aktueller Leader"-Karte, analog zum Pokal oben. */
+.leader-smiley{
   position:absolute;
   left:50%; top:50%;
   transform: translate(-50%, -50%);
@@ -544,10 +544,10 @@ body.page-default .programme-head h2{
   pointer-events:none;
   opacity:.5;
 }
-.leader-arrow .leader-arrow-fill{ opacity:.1; }
-.leader-arrow .leader-arrow-line{ opacity:.28; }
+.leader-smiley .leader-smiley-fill{ opacity:.1; }
+.leader-smiley .leader-smiley-line{ opacity:.28; }
 @media (max-width: 991.98px){
-  .leader-arrow{ width:52%; }
+  .leader-smiley{ width:52%; }
 }
 .champ-avatar{
   width:4.6rem; height:4.6rem; border-radius:50%;
