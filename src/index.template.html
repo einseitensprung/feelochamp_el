@@ -117,7 +117,13 @@
               </div>
               <div class="mb-4">
                 <label for="feelo-pass" class="form-label-feelo">Passwort</label>
-                <input type="password" class="form-control input-feelo" id="feelo-pass" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="current-password">
+                <div class="pass-wrap">
+                  <input type="password" class="form-control input-feelo" id="feelo-pass" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="current-password">
+                  <button type="button" class="pass-toggle" id="feelo-pass-toggle" aria-label="Passwort anzeigen" aria-controls="feelo-pass" aria-pressed="false">
+                    <svg class="icon-eye" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg class="icon-eye-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.9 5.2A10.4 10.4 0 0 1 12 5c6.5 0 10 7 10 7a17.6 17.6 0 0 1-2.8 3.8M6.6 6.6C3.8 8.4 2 12 2 12s3.5 7 10 7c1.9 0 3.6-.6 5-1.5"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/><path d="M3 3l18 18"/></svg>
+                  </button>
+                </div>
               </div>
               <button type="submit" class="btn btn-kickoff w-100">Log in</button>
             </form>
@@ -259,6 +265,19 @@
     showToast("Los geht's, Champion! Das ist eine Design-Demo – kein echtes Login.", 1600);
     setTimeout(function(){ window.location.href = '{{START_URL}}'; }, 900);
   });
+
+  // Passwort ein-/ausblenden
+  (function(){
+    var input = document.getElementById('feelo-pass');
+    var btn = document.getElementById('feelo-pass-toggle');
+    btn.addEventListener('click', function(){
+      var show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      btn.setAttribute('aria-pressed', show);
+      btn.setAttribute('aria-label', show ? 'Passwort verbergen' : 'Passwort anzeigen');
+      input.focus();
+    });
+  })();
 
   // Alle leeren Links (href="#", ohne Dropdown-Funktion, ohne eigene Lightbox) lösen den Demo-Toast aus
   document.querySelectorAll('a[href="#"]:not([data-bs-toggle]):not(.ds-open)').forEach(function(a){

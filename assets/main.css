@@ -361,6 +361,25 @@ body.page-home .navbar-feelo .nav-link{ font-size:.86rem; padding:.5rem .9rem !i
   color:#0a0a0a;
   box-shadow: 0 0 0 3px rgba(232,70,10,0.18);
 }
+.pass-wrap{ position:relative; }
+.pass-wrap .input-feelo{ padding-right: 2.9rem; }
+.pass-toggle{
+  position:absolute;
+  top:50%; right:.35rem;
+  transform:translateY(-50%);
+  display:flex; align-items:center; justify-content:center;
+  width:2.2rem; height:2.2rem;
+  padding:0;
+  border:0; border-radius:.4rem;
+  background:transparent;
+  color: rgba(74,74,74,0.7);
+  cursor:pointer;
+}
+.pass-toggle:hover{ color:#0a0a0a; }
+.pass-toggle:focus-visible{ outline:2px solid var(--blue); outline-offset:1px; }
+.pass-toggle .icon-eye-off{ display:none; }
+.pass-toggle[aria-pressed="true"] .icon-eye{ display:none; }
+.pass-toggle[aria-pressed="true"] .icon-eye-off{ display:block; }
 
 /* ---------- section divider (Startseite) ---------- */
 .hero-divider{
