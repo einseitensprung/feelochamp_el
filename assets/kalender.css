@@ -1,0 +1,74 @@
+/* Kalender abonnieren (kalender.html) – ICS-Feed der Europa League unter dem
+   Kalender. Übernommen aus jump_kalender.html (feelochamp_nl), reduziert auf
+   den einen EL-Feed; Farben kommen aus den Tokens in main.css. */
+.cal-sub{
+  margin-top:1.5rem; padding:1.25rem; border-radius:1.1rem;
+  background: var(--panel); border:1px solid var(--line);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
+}
+.cal-sub-head{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:.5rem 2rem; margin-bottom:1.1rem; }
+.cal-sub-head .eyebrow{ margin:0; }
+.cal-sub-head h2{ font-family:'Bebas Neue', sans-serif; font-weight:400; letter-spacing:.04em; font-size:2rem; line-height:1; margin:.2rem 0 0; color: var(--white); }
+.cal-sub-lead{ margin:0; max-width:34rem; font-size:.88rem; color: var(--slate); }
+
+.cal-sub-feed{
+  display:flex; align-items:center; gap:.75rem; min-width:0;
+  padding:.75rem .75rem .75rem .8rem; border-radius:.8rem;
+  border:1px solid var(--line); background: rgba(255,255,255,.03);
+  transition: border-color .2s ease, background .2s ease;
+}
+.cal-sub-feed:hover{ border-color: color-mix(in srgb, var(--cyan) 50%, transparent); background: color-mix(in srgb, var(--cyan) 8%, transparent); }
+.cal-sub-badge{
+  flex:none; min-width:2.6rem; text-align:center;
+  font-family:'Bebas Neue', sans-serif; font-weight:400; font-size:1.35rem; letter-spacing:.04em; line-height:1;
+  padding:.4rem .55rem .3rem; border-radius:.4rem; color:#fff;
+  background: linear-gradient(160deg, var(--cyan), var(--blue));
+}
+.cal-sub-name{ flex:1; min-width:0; font-weight:600; font-size:1rem; line-height:1.25; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.cal-sub-name small{ display:block; font-size:.66rem; font-weight:400; letter-spacing:.1em; color: rgba(166,166,166,.7); }
+.cal-sub-actions{ flex:none; display:flex; gap:.3rem; }
+.cal-sub-btn{
+  display:inline-flex; align-items:center; gap:.4rem; height:1.9rem; padding:0 .6rem 0 .5rem;
+  border:1px solid var(--line); border-radius:.5rem; background: rgba(255,255,255,.04);
+  color: var(--white); font: 600 .74rem/1 'Inter', sans-serif; cursor:pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.cal-sub-btn:hover{ color: var(--white); background: color-mix(in srgb, var(--cyan) 22%, transparent); border-color: color-mix(in srgb, var(--cyan) 60%, transparent); }
+.cal-sub-btn:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+.cal-sub-ico{ width:14px; height:14px; flex:none; transition: transform .2s ease; }
+.cal-sub-btn:hover .cal-sub-ico{ transform: scale(1.1); }
+.cal-sub-copy{ color: var(--slate); }
+.cal-sub-copy.is-done{ color: var(--ink); background: #33ffb8; border-color: #33ffb8; }
+
+/* Anleitung: dezent, zweispaltig */
+.cal-sub-howto{
+  display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:1rem 2rem;
+  margin-top:1.25rem; padding-top:1.1rem; border-top:1px solid var(--line);
+  font-size:.8rem; line-height:1.5; color: var(--slate);
+}
+.cal-sub-howto h3{
+  margin:0 0 .45rem; font-family:'JetBrains Mono', ui-monospace, monospace; font-weight:600;
+  font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color: var(--cyan-soft);
+}
+.cal-sub-howto ol{ margin:0; padding-left:1.1rem; }
+.cal-sub-howto li{ margin-bottom:.3rem; }
+.cal-sub-howto li::marker{ font-family:'JetBrains Mono', ui-monospace, monospace; color: rgba(166,166,166,.6); }
+.cal-sub-howto b{ color: var(--white); font-weight:600; }
+.cal-sub-howto i{ font-style:normal; color: #d6d6d6; }
+.cal-sub-note{ margin:.5rem 0 0; font-size:.74rem; color: rgba(166,166,166,.7); }
+
+@media (max-width: 767.98px){
+  .cal-sub{ padding:1rem .85rem; }
+  .cal-sub-howto{ grid-template-columns:1fr; }
+  .cal-sub-name{ white-space:normal; }
+}
+@media (max-width: 575.98px){
+  /* Buttons in eigene Zeile, damit der Bewerbsname ganz lesbar bleibt */
+  .cal-sub-feed{ flex-wrap:wrap; row-gap:.55rem; }
+  .cal-sub-actions{ flex-basis:100%; }
+  .cal-sub-btn{ flex:1; justify-content:center; height:2.2rem; }
+}
+@media (prefers-reduced-motion: reduce){
+  .cal-sub-feed, .cal-sub-btn, .cal-sub-ico{ transition:none; }
+}
