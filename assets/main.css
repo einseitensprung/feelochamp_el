@@ -1925,11 +1925,25 @@ body.page-preloader{ background: var(--ink); }
   .team-select-panel{ left:.6rem; right:.6rem; }
 }
 
-/* Qualitäts-Badges am Ende des Footers (wie einseitensprung.at) */
+/* Qualitäts-Badges am Ende des Footers (wie einseitensprung.at), bewusst dezent */
 .footer-feelo .esp_inline-list{
-  list-style:none; padding:0; margin:1rem auto 0;
-  font-family:'JetBrains Mono', ui-monospace, monospace; font-size:12px; color:var(--slate);
+  position:relative;
+  list-style:none; padding:1.1rem 0 0; margin:1.4rem auto 0;
+  font-family:'JetBrains Mono', ui-monospace, monospace; font-size:10.5px; letter-spacing:.03em;
+  color:var(--slate); opacity:.55;
   text-align:center;
+  transition:opacity .2s;
 }
-.footer-feelo .esp_inline-list li{ display:inline-block; margin:8px 20px; }
-.footer-feelo .esp_inline-list svg{ display:inline-block; vertical-align:middle; }
+.footer-feelo .esp_inline-list:hover{ opacity:.85; }
+/* Trennlinie: läuft zu den Rändern hin aus, mit kleinem Cyan-Akzent in der Mitte */
+.footer-feelo .esp_inline-list::before{
+  content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:min(640px, 90%); height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.18) 30%, var(--cyan-soft) 50%, rgba(255,255,255,.18) 70%, transparent);
+}
+.footer-feelo .esp_inline-list::after{
+  content:""; position:absolute; top:-2px; left:50%; transform:translateX(-50%) rotate(45deg);
+  width:5px; height:5px; background:var(--ink); border:1px solid var(--cyan-soft);
+}
+.footer-feelo .esp_inline-list li{ display:inline-block; margin:4px 14px; }
+.footer-feelo .esp_inline-list svg{ display:inline-block; vertical-align:-2px; width:12px; height:12px; margin-right:2px; }
