@@ -1946,4 +1946,4 @@ body.page-preloader{ background: var(--ink); }
   width:5px; height:5px; background:var(--ink); border:1px solid var(--cyan-soft);
 }
 .footer-feelo .esp_inline-list li{ display:inline-block; margin:4px 14px; }
-.footer-feelo .esp_inline-list svg{ display:inline-block; vertical-align:-2px; width:12px; height:12px; margin-right:2px; }
+.footer-feelo .esp_inline-list .bi{ font-size:12px; vertical-align:-1px; margin-right:2px; }
