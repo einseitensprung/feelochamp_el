@@ -61,7 +61,7 @@ const COMPETITIONS = [
 const CURRENT_COMPETITION = "EL";
 const BRAND_SWITCH = `<div class="dropdown brand-switch">
         <button class="brand-suffix bs-${CURRENT_COMPETITION.toLowerCase()} dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Tippbewerb wechseln">/${CURRENT_COMPETITION}</button>
-        <ul class="dropdown-menu dropdown-menu-feelo brand-switch-menu">
+        <ul class="dropdown-menu brand-switch-menu">
           <li class="brand-switch-head">Tippbewerb wechseln</li>
 ${COMPETITIONS.map(c => {
   const inner = `<span class="bs-code">/${c.code}</span><span class="bs-name">${c.name}</span>`;

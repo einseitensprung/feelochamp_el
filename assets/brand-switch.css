@@ -48,14 +48,17 @@ body.page-home .navbar-feelo .brand-switch .brand-suffix{ font-size:.88rem; }
 }
 
 /* ---------- Menü ---------- */
-.brand-switch-menu{ min-width:15.5rem; margin-top:.45rem !important; }
+.brand-switch-menu{
+  min-width:15.5rem; margin-top:.45rem !important; padding:.4rem;
+  background: var(--ink-2); border:1px solid var(--line); box-shadow: var(--shadow);
+}
 .brand-switch-menu .brand-switch-head{
   font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
   color: var(--slate); padding:.35rem .75rem .45rem; white-space:nowrap;
 }
-.dropdown-menu-feelo.brand-switch-menu .dropdown-item{
+.brand-switch-menu .dropdown-item{
   position:relative; display:flex; align-items:baseline; gap:.7rem;
-  padding:.4rem .75rem; color: var(--white);
+  padding:.4rem .75rem; color: var(--white); border-radius:.4rem;
   transition: background-color .15s ease, padding-left .15s ease;
 }
 /* farbiger Balken links, blendet beim Hover/aktiv ein */
@@ -85,7 +88,7 @@ body.page-home .navbar-feelo .brand-switch .brand-suffix{ font-size:.88rem; }
 .brand-switch-menu a.dropdown-item:focus .bs-name{ color: var(--acc-text); }
 
 /* aktueller Bewerb */
-.dropdown-menu-feelo.brand-switch-menu .dropdown-item.active{
+.brand-switch-menu .dropdown-item.active{
   background: color-mix(in srgb, var(--acc) 10%, transparent); cursor:default;
 }
 .brand-switch-menu .dropdown-item.active::before{ opacity:1; }
