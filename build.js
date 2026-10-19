@@ -47,7 +47,20 @@ function build(templateFile, outFile, replacements) {
   console.log(`built ${outFile} (${tpl.length.toLocaleString()} bytes)`);
 }
 
-const COMMON = { "{{HOME_URL}}": HOME_URL, "{{SPIELE_URL}}": SPIELE_URL, "{{AUFSTEIGER_URL}}": AUFSTEIGER_URL, "{{START_URL}}": START_URL, "{{REGELN_URL}}": REGELN_URL, "{{SPIELSTAND_URL}}": SPIELSTAND_URL, "{{ALLETIPS_URL}}": ALLETIPS_URL, "{{TABELLE_URL}}": TABELLE_URL, "{{PLAYOFF_URL}}": PLAYOFF_URL, "{{TURNIERBAUM_URL}}": TURNIERBAUM_URL, "{{TEAMS_URL}}": TEAMS_URL, "{{KALENDER_URL}}": KALENDER_URL, "{{STATISTIK_URL}}": STATISTIK_URL, "{{VERLAUF_URL}}": VERLAUF_URL, "{{VERLAUF2_URL}}": VERLAUF2_URL };
+// Liga-Umschalter im Logo (/EL ▾): springt zu den anderen Feelochamp-Tipprunden.
+const LEAGUES = ["EL", "CL", "NL", "DB", "OEL", "ZWA", "JUMP"];
+const CURRENT_LEAGUE = "EL";
+const BRAND_SWITCH = `<div class="dropdown brand-switch">
+        <button class="brand-suffix dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Tipprunde wechseln">/${CURRENT_LEAGUE}</button>
+        <ul class="dropdown-menu dropdown-menu-feelo brand-switch-menu">
+          <li class="brand-switch-head">Tipprunde wechseln</li>
+${LEAGUES.map(l => l === CURRENT_LEAGUE
+  ? `          <li><span class="dropdown-item active" aria-current="page"><span class="bs-slash">/</span>${l}<span class="bs-dot" aria-hidden="true"></span></span></li>`
+  : `          <li><a class="dropdown-item" href="https://einseitensprung.at/${l.toLowerCase()}/"><span class="bs-slash">/</span>${l}</a></li>`).join("\n")}
+        </ul>
+      </div>`;
+
+const COMMON = { "{{BRAND_SWITCH}}": BRAND_SWITCH, "{{HOME_URL}}": HOME_URL, "{{SPIELE_URL}}": SPIELE_URL, "{{AUFSTEIGER_URL}}": AUFSTEIGER_URL, "{{START_URL}}": START_URL, "{{REGELN_URL}}": REGELN_URL, "{{SPIELSTAND_URL}}": SPIELSTAND_URL, "{{ALLETIPS_URL}}": ALLETIPS_URL, "{{TABELLE_URL}}": TABELLE_URL, "{{PLAYOFF_URL}}": PLAYOFF_URL, "{{TURNIERBAUM_URL}}": TURNIERBAUM_URL, "{{TEAMS_URL}}": TEAMS_URL, "{{KALENDER_URL}}": KALENDER_URL, "{{STATISTIK_URL}}": STATISTIK_URL, "{{VERLAUF_URL}}": VERLAUF_URL, "{{VERLAUF2_URL}}": VERLAUF2_URL };
 
 build("index.template.html", "index.html", COMMON);
 build("spiele.template.html", "spiele.html", COMMON);

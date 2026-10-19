@@ -66,8 +66,52 @@ a:focus-visible, button:focus-visible, input:focus-visible, .btn:focus-visible, 
   font-family:'Bebas Neue', sans-serif; font-size:1.5rem; letter-spacing:.06em;
   color: var(--white); display:flex; align-items:center; gap:.55rem;
 }
-.navbar-feelo .navbar-brand .brand-suffix{
-  font-size:.55em; letter-spacing:.04em; color: var(--cyan); margin-left:-.3rem;
+/* Logo + Liga-Umschalter (/EL ▾) */
+.navbar-feelo .brand-wrap{ display:flex; align-items:center; margin-right:1rem; }
+.navbar-feelo .brand-wrap .navbar-brand{ margin-right:0; }
+.navbar-feelo .brand-switch .brand-suffix{
+  font-family:'Bebas Neue', sans-serif; font-size:.85rem; letter-spacing:.06em; line-height:1;
+  color: var(--cyan); background: transparent;
+  border:1px solid transparent; border-radius:999px;
+  margin-left:.3rem; padding:.3rem .5rem .22rem .55rem;
+  display:inline-flex; align-items:center; gap:.3rem;
+  transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+body.page-home .navbar-feelo .brand-switch .brand-suffix{ font-size:.88rem; }
+.navbar-feelo .brand-switch .brand-suffix::after{
+  border:0; margin:0; width:.38rem; height:.38rem;
+  border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg); transition: transform .2s ease;
+}
+.navbar-feelo .brand-switch .brand-suffix:hover,
+.navbar-feelo .brand-switch .brand-suffix:focus-visible,
+.navbar-feelo .brand-switch .brand-suffix[aria-expanded="true"]{
+  color: var(--cyan-soft); border-color: var(--line-cyan); background: rgba(255,255,255,.04);
+}
+.navbar-feelo .brand-switch .brand-suffix[aria-expanded="true"]::after{
+  transform: translateY(1px) rotate(-135deg);
+}
+.brand-switch-menu{ min-width:10.5rem; margin-top:.45rem !important; }
+.brand-switch-menu .brand-switch-head{
+  font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color: var(--slate); padding:.35rem .75rem .45rem; white-space:nowrap;
+}
+.dropdown-menu-feelo.brand-switch-menu .dropdown-item{
+  font-family:'Bebas Neue', sans-serif; font-size:1.05rem; letter-spacing:.08em;
+  display:flex; align-items:center; padding:.35rem .75rem;
+  transition: background-color .15s ease, color .15s ease, padding-left .15s ease;
+}
+.brand-switch-menu .dropdown-item .bs-slash{ color: var(--slate); margin-right:.08rem; }
+.brand-switch-menu a.dropdown-item:hover,
+.brand-switch-menu a.dropdown-item:focus{ padding-left:1rem; color: var(--cyan-soft); }
+.brand-switch-menu a.dropdown-item:hover .bs-slash{ color: var(--cyan); }
+.dropdown-menu-feelo.brand-switch-menu .dropdown-item.active{
+  color: var(--cyan); background: rgba(255,255,255,.05); cursor:default;
+}
+.brand-switch-menu .dropdown-item.active .bs-slash{ color: var(--cyan); }
+.brand-switch-menu .bs-dot{
+  margin-left:auto; width:.4rem; height:.4rem; border-radius:50%;
+  background: var(--cyan); box-shadow: 0 0 0 3px rgba(255,255,255,.06);
 }
 .navbar-feelo .nav-link{
   color: var(--slate); font-size:.85rem; font-weight:600; letter-spacing:.02em;

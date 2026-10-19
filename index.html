@@ -14,14 +14,29 @@
 <!-- ================= NAVBAR ================= -->
 <nav class="navbar navbar-expand-lg navbar-feelo sticky-top py-2">
   <div class="container">
-    <a class="navbar-brand" href="#top">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6a1a" stroke-width="1.6" aria-hidden="true">
-        <circle cx="12" cy="12" r="9"/>
-        <path d="M12 7.2l3.4 2.5-1.3 4h-4.2l-1.3-4L12 7.2z"/>
-        <path d="M12 7.2V4.3M15.4 9.7l2.7-1.6M14.1 13.7l1.7 2.8M9.9 13.7l-1.7 2.8M8.6 9.7l-2.7-1.6"/>
-      </svg>
-      FEELOCHAMP<span class="brand-suffix">/EL</span>
-    </a>
+    <div class="brand-wrap">
+      <a class="navbar-brand" href="#top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6a1a" stroke-width="1.6" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7.2l3.4 2.5-1.3 4h-4.2l-1.3-4L12 7.2z"/>
+          <path d="M12 7.2V4.3M15.4 9.7l2.7-1.6M14.1 13.7l1.7 2.8M9.9 13.7l-1.7 2.8M8.6 9.7l-2.7-1.6"/>
+        </svg>
+        FEELOCHAMP
+      </a>
+      <div class="dropdown brand-switch">
+        <button class="brand-suffix dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Tipprunde wechseln">/EL</button>
+        <ul class="dropdown-menu dropdown-menu-feelo brand-switch-menu">
+          <li class="brand-switch-head">Tipprunde wechseln</li>
+          <li><span class="dropdown-item active" aria-current="page"><span class="bs-slash">/</span>EL<span class="bs-dot" aria-hidden="true"></span></span></li>
+          <li><a class="dropdown-item" href="https://einseitensprung.at/cl/"><span class="bs-slash">/</span>CL</a></li>
+          <li><a class="dropdown-item" href="https://einseitensprung.at/nl/"><span class="bs-slash">/</span>NL</a></li>
+          <li><a class="dropdown-item" href="https://einseitensprung.at/db/"><span class="bs-slash">/</span>DB</a></li>
+          <li><a class="dropdown-item" href="https://einseitensprung.at/oel/"><span class="bs-slash">/</span>OEL</a></li>
+          <li><a class="dropdown-item" href="https://einseitensprung.at/zwa/"><span class="bs-slash">/</span>ZWA</a></li>
+          <li><a class="dropdown-item" href="https://einseitensprung.at/jump/"><span class="bs-slash">/</span>JUMP</a></li>
+        </ul>
+      </div>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Navigation umschalten" style="border-color: var(--line-cyan);">
       <span class="navbar-toggler-icon"></span>
     </button>
