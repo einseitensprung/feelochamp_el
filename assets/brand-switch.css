@@ -18,7 +18,7 @@
 }
 
 /* ---------- Logo-Wrapper ---------- */
-.navbar-feelo .brand-wrap{ display:flex; align-items:center; margin-right:1rem; }
+.navbar-feelo .brand-wrap{ display:flex; flex-wrap:nowrap; align-items:center; margin-right:1rem; min-width:0; }
 .navbar-feelo .brand-wrap .navbar-brand{ margin-right:0; }
 
 /* ---------- Toggle-Button (/EL) ---------- */
@@ -26,8 +26,8 @@
   font-family:'Bebas Neue', sans-serif; font-size:.85rem; letter-spacing:.06em; line-height:1;
   color: var(--acc); background: transparent;
   border:1px solid transparent; border-radius:999px;
-  margin-left:.3rem; padding:.3rem .5rem .22rem .55rem;
-  display:inline-flex; align-items:center; gap:.3rem;
+  margin-left:.05rem; padding:.3rem .45rem .22rem .3rem;
+  display:inline-flex; align-items:center; gap:.3rem; white-space:nowrap;
   transition: border-color .15s ease, background-color .15s ease, color .15s ease;
 }
 body.page-home .navbar-feelo .brand-switch .brand-suffix{ font-size:.88rem; }
@@ -49,7 +49,7 @@ body.page-home .navbar-feelo .brand-switch .brand-suffix{ font-size:.88rem; }
 
 /* ---------- Menü ---------- */
 .brand-switch-menu{
-  min-width:15.5rem; margin-top:.45rem !important; padding:.4rem;
+  min-width:15.5rem; max-width:calc(100vw - 1.5rem); margin-top:.45rem !important; padding:.4rem;
   background: var(--ink-2); border:1px solid var(--line); box-shadow: var(--shadow);
 }
 .brand-switch-menu .brand-switch-head{
@@ -101,3 +101,14 @@ body.page-home .navbar-feelo .brand-switch .brand-suffix{ font-size:.88rem; }
 
 /* Trennlinie vor der Übersicht (JUMP) */
 .brand-switch-menu .bs-sep{ height:1px; margin:.35rem .5rem; background: var(--line); }
+
+/* Schmale Screens: Bootstrap positioniert Dropdowns in der Navbar ohne Popper,
+   das Menü würde rechts aus dem Viewport ragen -> an der (sticky) Navbar statt
+   am Button ausrichten, mit Rand links/rechts. */
+@media (max-width: 575.98px){
+  .navbar-feelo .brand-switch{ position: static; }
+  .navbar-feelo .brand-switch-menu{
+    top:100% !important; left:.75rem !important; right:.75rem !important;
+    min-width:0; max-width:none; margin-top:.25rem !important;
+  }
+}
