@@ -47,16 +47,29 @@ function build(templateFile, outFile, replacements) {
   console.log(`built ${outFile} (${tpl.length.toLocaleString()} bytes)`);
 }
 
-// Liga-Umschalter im Logo (/EL ▾): springt zu den anderen Feelochamp-Tipprunden.
-const LEAGUES = ["EL", "CL", "NL", "DB", "OEL", "ZWA", "JUMP"];
-const CURRENT_LEAGUE = "EL";
+// Tippbewerb-Umschalter im Logo (/EL ▾): springt zu den anderen Feelochamp-Tippbewerben.
+// Farben je Bewerb in assets/brand-switch.css (.bs-<code>), übernommen von einseitensprung.at/feelochamp/.
+const COMPETITIONS = [
+  { code: "EL",   name: "Europa League",              href: "https://einseitensprung.at/el/" },
+  { code: "CL",   name: "Champions League",           href: "https://einseitensprung.at/cl/" },
+  { code: "NL",   name: "Nations League",             href: "https://einseitensprung.at/nl/" },
+  { code: "DB",   name: "Deutsche Bundesliga",        href: "https://einseitensprung.at/db/" },
+  { code: "OEL",  name: "Österreichische Bundesliga", href: "https://einseitensprung.at/oel/" },
+  { code: "ZWA",  name: "2. Liga Österreich",         href: "https://einseitensprung.at/zwa/" },
+  { code: "JUMP", name: "Alle Tippbewerbe",           href: "https://einseitensprung.at/feelochamp/" },
+];
+const CURRENT_COMPETITION = "EL";
 const BRAND_SWITCH = `<div class="dropdown brand-switch">
-        <button class="brand-suffix dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Tipprunde wechseln">/${CURRENT_LEAGUE}</button>
+        <button class="brand-suffix bs-${CURRENT_COMPETITION.toLowerCase()} dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Tippbewerb wechseln">/${CURRENT_COMPETITION}</button>
         <ul class="dropdown-menu dropdown-menu-feelo brand-switch-menu">
-          <li class="brand-switch-head">Tipprunde wechseln</li>
-${LEAGUES.map(l => l === CURRENT_LEAGUE
-  ? `          <li><span class="dropdown-item active" aria-current="page"><span class="bs-slash">/</span>${l}<span class="bs-dot" aria-hidden="true"></span></span></li>`
-  : `          <li><a class="dropdown-item" href="https://einseitensprung.at/${l.toLowerCase()}/"><span class="bs-slash">/</span>${l}</a></li>`).join("\n")}
+          <li class="brand-switch-head">Tippbewerb wechseln</li>
+${COMPETITIONS.map(c => {
+  const inner = `<span class="bs-code">/${c.code}</span><span class="bs-name">${c.name}</span>`;
+  const sep = c.code === "JUMP" ? `          <li class="bs-sep" role="separator"></li>\n` : "";
+  return sep + (c.code === CURRENT_COMPETITION
+    ? `          <li><span class="dropdown-item bs-${c.code.toLowerCase()} active" aria-current="page">${inner}<span class="bs-dot" aria-hidden="true"></span></span></li>`
+    : `          <li><a class="dropdown-item bs-${c.code.toLowerCase()}" href="${c.href}">${inner}</a></li>`);
+}).join("\n")}
         </ul>
       </div>`;
 

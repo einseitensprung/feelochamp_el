@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Tippbewerb-Umschalter im Logo (/EL ▾)
+   Markup kommt aus build.js ({{BRAND_SWITCH}}). Die Akzentfarben je Bewerb
+   (--acc / --acc-2 / --acc-text) sind von den Karten auf
+   einseitensprung.at/feelochamp/ übernommen, JUMP = deren Regenbogen.
+   ========================================================================== */
+
+/* Akzentfarben je Tippbewerb */
+.brand-switch .bs-cl  { --acc:#22d3ee; --acc-2:#3b82f6; --acc-text:#8fe9f7; }
+.brand-switch .bs-el  { --acc:#ff6a1a; --acc-2:#e8460a; --acc-text:#ffb07a; }
+.brand-switch .bs-nl  { --acc:#5bc2fc; --acc-2:#2d7dd8; --acc-text:#a9e0ff; }
+.brand-switch .bs-db  { --acc:#d20515; --acc-2:#a8040f; --acc-text:#ff404a; }
+.brand-switch .bs-oel { --acc:#ff00b3; --acc-2:#00fff5; --acc-text:#ff33c2; }
+.brand-switch .bs-zwa { --acc:#33ffb8; --acc-2:#ea4225; --acc-text:#5cffc6; }
+.brand-switch .bs-jump{
+  --acc:#3a9bff; --acc-2:#b44dff; --acc-text:#ffe135;
+  --acc-grad: linear-gradient(90deg, #ff3b3b, #ff9f1c, #ffe135, #3ddc6b, #3a9bff, #b44dff);
+}
+
+/* ---------- Logo-Wrapper ---------- */
+.navbar-feelo .brand-wrap{ display:flex; align-items:center; margin-right:1rem; }
+.navbar-feelo .brand-wrap .navbar-brand{ margin-right:0; }
+
+/* ---------- Toggle-Button (/EL) ---------- */
+.navbar-feelo .brand-switch .brand-suffix{
+  font-family:'Bebas Neue', sans-serif; font-size:.85rem; letter-spacing:.06em; line-height:1;
+  color: var(--acc); background: transparent;
+  border:1px solid transparent; border-radius:999px;
+  margin-left:.3rem; padding:.3rem .5rem .22rem .55rem;
+  display:inline-flex; align-items:center; gap:.3rem;
+  transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+body.page-home .navbar-feelo .brand-switch .brand-suffix{ font-size:.88rem; }
+.navbar-feelo .brand-switch .brand-suffix::after{
+  border:0; margin:0; width:.38rem; height:.38rem;
+  border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg); transition: transform .2s ease;
+}
+.navbar-feelo .brand-switch .brand-suffix:hover,
+.navbar-feelo .brand-switch .brand-suffix:focus-visible,
+.navbar-feelo .brand-switch .brand-suffix[aria-expanded="true"]{
+  color: var(--acc-text);
+  border-color: color-mix(in srgb, var(--acc) 45%, transparent);
+  background: color-mix(in srgb, var(--acc) 8%, transparent);
+}
+.navbar-feelo .brand-switch .brand-suffix[aria-expanded="true"]::after{
+  transform: translateY(1px) rotate(-135deg);
+}
+
+/* ---------- Menü ---------- */
+.brand-switch-menu{ min-width:15.5rem; margin-top:.45rem !important; }
+.brand-switch-menu .brand-switch-head{
+  font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color: var(--slate); padding:.35rem .75rem .45rem; white-space:nowrap;
+}
+.dropdown-menu-feelo.brand-switch-menu .dropdown-item{
+  position:relative; display:flex; align-items:baseline; gap:.7rem;
+  padding:.4rem .75rem; color: var(--white);
+  transition: background-color .15s ease, padding-left .15s ease;
+}
+/* farbiger Balken links, blendet beim Hover/aktiv ein */
+.brand-switch-menu .dropdown-item::before{
+  content:""; position:absolute; left:.3rem; top:.5rem; bottom:.5rem; width:2px;
+  border-radius:2px; background: var(--acc-grad, linear-gradient(180deg, var(--acc), var(--acc-2)));
+  opacity:0; transition: opacity .15s ease;
+}
+.brand-switch-menu .bs-code{
+  font-family:'Bebas Neue', sans-serif; font-size:1.1rem; letter-spacing:.08em; line-height:1;
+  min-width:2.9rem;
+  background: var(--acc-grad, linear-gradient(160deg, var(--acc-text), var(--acc) 55%, var(--acc-2)));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.brand-switch-menu .bs-name{
+  font-size:.78rem; color: var(--slate); white-space:nowrap;
+  transition: color .15s ease;
+}
+.brand-switch-menu a.dropdown-item:hover,
+.brand-switch-menu a.dropdown-item:focus{
+  padding-left:1rem;
+  background: color-mix(in srgb, var(--acc) 12%, transparent);
+}
+.brand-switch-menu a.dropdown-item:hover::before,
+.brand-switch-menu a.dropdown-item:focus::before{ opacity:1; }
+.brand-switch-menu a.dropdown-item:hover .bs-name,
+.brand-switch-menu a.dropdown-item:focus .bs-name{ color: var(--acc-text); }
+
+/* aktueller Bewerb */
+.dropdown-menu-feelo.brand-switch-menu .dropdown-item.active{
+  background: color-mix(in srgb, var(--acc) 10%, transparent); cursor:default;
+}
+.brand-switch-menu .dropdown-item.active::before{ opacity:1; }
+.brand-switch-menu .dropdown-item.active .bs-name{ color: var(--acc-text); }
+.brand-switch-menu .bs-dot{
+  align-self:center; margin-left:auto; width:.4rem; height:.4rem; border-radius:50%;
+  background: var(--acc);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--acc) 22%, transparent);
+}
+
+/* Trennlinie vor der Übersicht (JUMP) */
+.brand-switch-menu .bs-sep{ height:1px; margin:.35rem .5rem; background: var(--line); }
