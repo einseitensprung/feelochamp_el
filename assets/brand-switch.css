@@ -12,6 +12,7 @@
 .brand-switch .bs-db  { --acc:#d20515; --acc-2:#a8040f; --acc-text:#ff404a; }
 .brand-switch .bs-oel { --acc:#ff00b3; --acc-2:#00fff5; --acc-text:#ff33c2; }
 .brand-switch .bs-zwa { --acc:#33ffb8; --acc-2:#ea4225; --acc-text:#5cffc6; }
+.brand-switch .bs-pl  { --acc:#ff2882; --acc-2:#05f0ff; --acc-text:#ff4f98; }
 .brand-switch .bs-jump{
   --acc:#3a9bff; --acc-2:#b44dff; --acc-text:#ffe135;
   --acc-grad: linear-gradient(90deg, #ff3b3b, #ff9f1c, #ffe135, #3ddc6b, #3a9bff, #b44dff);
