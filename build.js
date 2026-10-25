@@ -56,6 +56,7 @@ const COMPETITIONS = [
   { code: "DB",   name: "Deutsche Bundesliga",        href: "https://einseitensprung.at/db/" },
   { code: "OEL",  name: "Österreichische Bundesliga", href: "https://einseitensprung.at/oel/" },
   { code: "ZWA",  name: "2. Liga Österreich",         href: "https://einseitensprung.at/zwa/" },
+  { code: "OEC",  name: "ÖFB Cup",                    href: "https://einseitensprung.at/oec/" },
   { code: "PL",   name: "Premier League",             href: "https://einseitensprung.at/pl/" },
   { code: "JUMP", name: "Alle Tippbewerbe",           href: "https://einseitensprung.at/feelochamp/" },
 ];
